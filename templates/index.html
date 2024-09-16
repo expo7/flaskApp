@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        #progress-bar {
+            display: none;
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        #progress-bar div {
+            width: 0;
+            height: 20px;
+            background-color: #007BFF;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Stock Showdown: A Comparative Analysis</h1>
+<p>Welcome to Stock Showdown, where you can quickly compare two companies and see how they stack up against each other across key financial metrics. Enter the ticker symbols of two companies, and let us handle the rest!</p>
+    <form id="stock-form" action="/analyze" method="post">
+        <label for="ticker1">Stock Ticker 1:</label>
+        <input type="text" id="ticker1" name="ticker1" required><br><br>
+        <label for="ticker2">Stock Ticker 2:</label>
+        <input type="text" id="ticker2" name="ticker2" required><br><br>
+        <input type="submit" value="Analyze"> 
+    </form>
+</body>
+</html>

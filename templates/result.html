@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .better-value {
+            background-color: #d4edda;
+        }
+    h2 {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        color: #555;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    p {
+        color: #777;
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Stock Analysis Result</h1>
+    <div class="container">
+        <h2>Stock Comparison</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>{{ data1['name'] }}</th>
+                <th>{{ data2['name'] }}</th>
+            </tr>
+            {% for key in data1.keys() %}
+                <tr>
+                    <td>{{ key }}</td>
+                            <td>{{ data1[key] }}</td>
+                            <td>{{ data2[key] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <p><a href="/definitions">View Definitions</a></p>
+        <h2>Analysis</h2>
+        <div>{{ analysis|safe }}</div>
+    </div>
+    <script>
+        document.getElementById('progress-bar').style.display = 'none';
+    </script>
+</body>
+</html>
