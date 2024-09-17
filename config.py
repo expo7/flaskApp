@@ -11,6 +11,6 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///development.db'
 
 class ProductionConfig(Config):
-    DEBUG = False
+    DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'postgresql://user:password@localhost/production_db'
     # For example, use PostgreSQL for production

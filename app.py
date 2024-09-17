@@ -7,6 +7,10 @@ import json
 import os
 import logging
 from logging.handlers import RotatingFileHandler
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+print(api_key)
 app = Flask(__name__)
 
 
@@ -96,7 +100,6 @@ def get_stock_info(ticker):
 
         # Store in Redis cache as a JSON string
         r.setex(ticker, CACHE_EXPIRATION_TIME, json.dumps(data))
-        
         return data
     except Exception as e:
         return {"error": f"Failed to retrieve stock data: {str(e)}"}
@@ -146,15 +149,12 @@ def analyze():
 
     # Check if GPT response is already cached
     cached_gpt_response = get_cached_gpt_response(ticker_symbol1, ticker_symbol2)
-    
     if cached_gpt_response:
         # If cached, use the cached response
         analysis_html = cached_gpt_response
     else:
-        # Generate new GPT response
         message = prompt + str(fundamental_data1) + str(fundamental_data2)
         client = OpenAI()
-
         completion = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
@@ -163,7 +163,6 @@ def analyze():
             ]
         )
         analysis_html = completion.choices[0].message.content
-        
         # Cache the GPT response
         cache_gpt_response(ticker_symbol1, ticker_symbol2, analysis_html)
 
