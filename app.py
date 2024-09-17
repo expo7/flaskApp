@@ -65,7 +65,7 @@ def stock_analysis_prompt(company_a, company_b):
     <p>[Final summary and investor guidance]</p>
 
     <h3>What to do next</h3>
-    <p>[suggest how to continue research. Give specific suggestions in the context of what was said in this doc]</p>"""
+    <p>[suggest how to continue research. Give specific suggestions in the context of what was said in this doc.  Incorporate my aphliate link to https://www.tradingview.com -  https://www.tradingview.com/?aff_id=142766]</p>"""
     return f"Compare the stocks of {company_a} and {company_b}.\n{format_instruction}"
 
 # Function to get stock data from Redis cache or fetch from yfinance

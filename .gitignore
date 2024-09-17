@@ -8,7 +8,8 @@ app.log
 logs/
 # C extensions
 *.so
-
+eval "$(ssh-agent -s)"
+eval "$(ssh-agent -s)".pub
 # Distribution / packaging
 .Python
 build/
